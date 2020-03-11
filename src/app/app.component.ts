@@ -41,23 +41,27 @@ export class AppComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {
   }
 
+  print() {
+    window.print();
+  }
+  
   ngOnInit(): void {
-    this.graphComplete = false;
-    let doc = new jsPDF('p', 'cm', 'a4');
-    doc.text(1, 1, 'some text');
-    doc.setProperties({
-      title: 'myPdf'
-    });
-    this.chart.ref$.pipe(
-      filter(ref => ref != null && !this.graphComplete),
-    ).subscribe(ref => {
-      this.graphComplete = true;
-      const svg = ref['getSVG']();
-      console.log(svg);
-      // const datauri = doc.output('datauristring', {
-      //   filename: 'myPdf'
-      // });
-      // this.pdfSafe = this.sanitizer.bypassSecurityTrustResourceUrl(datauri);
-    });
+    // this.graphComplete = false;
+    // let doc = new jsPDF('p', 'cm', 'a4');
+    // doc.text(1, 1, 'some text');
+    // doc.setProperties({
+    //   title: 'myPdf'
+    // });
+    // this.chart.ref$.pipe(
+    //   filter(ref => ref != null && !this.graphComplete),
+    // ).subscribe(ref => {
+    //   this.graphComplete = true;
+    //   const svg = ref['getSVG']();
+    //   console.log(svg);
+    //   // const datauri = doc.output('datauristring', {
+    //   //   filename: 'myPdf'
+    //   // });
+    //   // this.pdfSafe = this.sanitizer.bypassSecurityTrustResourceUrl(datauri);
+    // });
   }
 }

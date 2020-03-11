@@ -1,12 +1,55 @@
-.main {
-    height: 100vh;
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
-
-.pdf {
+.book {
+    padding: 30px;
+    background: silver;
+}
+.page {
+    background: white;
+    width: 210mm;
+    min-height: 297mm;
+    margin-bottom: 2cm;
+}
+.page-content {
     height: 100%;
-    width: 100%;
 }
-
-.chart {
-    width: 400px;
+.subpage {
+    padding: 1cm;
+    height: 297mm;
+}
+.landscape {
+    transform: rotate(90deg); 
+    width: 297mm;
+    height: 210mm;
+    top: 4.35cm;
+    right: 4.35cm;
+    position: relative;
+}
+@page {
+    size: A4;
+    margin: 0;        
+}
+@media print {
+    button {
+        display:none;
+    }
+    html, body {
+        width: 210mm;
+        height: 297mm;        
+    }
+    .book {
+        padding: 0;
+    }
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }        
 }

@@ -1,10 +1,25 @@
-<div class="main" fxLayout="row" fxLayoutAlign="start stretch">
-  <div fxFlex>
-    <div class="chart" [chart]="chart"></div>
+<button (click)="print()">PRINT</button>
+<div class="book">
+  <div class="page">
+      <div class="subpage">
+        <!-- <div class="chart" [chart]="chart"></div> -->
+        <div class="page-content" fxLayout="column" fxLayoutAlign="space-between stretch" >
+          <div>TOP</div>
+          <div>MIDDLE</div>
+          <div>BOTTOM</div>
+        </div>
+      </div>    
   </div>
-  <div *ngIf="pdfSafe" fxFlex>
-    <iframe height="99%" width="99%" [src]="pdfSafe">
-    </iframe>
+  <div class="page">
+      <div class="subpage landscape">
+        <div class="page-content" fxLayout="column" fxLayoutAlign="space-between stretch" >
+          <div>TOP</div>
+          <div fxLayout="row" fxLayoutAlign="start stretch" >
+            <div class="chart" [chart]="chart"></div>
+          </div>
+          <div>BOTTOM</div>
+        </div>
+      </div>    
   </div>
 </div>
 <router-outlet></router-outlet>
